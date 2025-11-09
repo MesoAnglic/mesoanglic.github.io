@@ -44,7 +44,7 @@ body {
 }
 
 .enter-link {
-    display: inline-block;
+    display: block;
     font-size: 2.5em;
     font-weight: bold;
     color: #0000ff;
@@ -52,6 +52,7 @@ body {
     margin-bottom: 80px;
     cursor: pointer;
     transition: color 0.2s;
+    text-align: center;
 }
 
 .enter-link:hover {
