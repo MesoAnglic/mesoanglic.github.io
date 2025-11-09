@@ -1,32 +1,26 @@
 // Language content
 const content = {
     en: {
-        title: "My Website",
-        quote: '"The journey of a thousand miles begins with a single step."',
+        title: "Zoso Project",
+        quote: '"Every night as I gazed up at the window I said to myself softly the word paralysis."',
         enter: "ENTER",
         home: "en-home.html"
     },
-    es: {
-        title: "Mi Sitio Web",
-        quote: '"Un viaje de mil millas comienza con un solo paso."',
-        enter: "ENTRAR",
-        home: "es-home.html"
+    jp: {
+        title: "ゾソProject",
+        quote: '「結びつる心も深き元結ひに濃き紫の色し褪せずは。」',
+        enter: "入力",
+        home: "jp-home.html"
     },
-    fr: {
-        title: "Mon Site Web",
-        quote: '"Un voyage de mille lieues commence par un pas."',
-        enter: "ENTRER",
-        home: "fr-home.html"
-    },
-    de: {
-        title: "Meine Webseite",
-        quote: '"Eine Reise von tausend Meilen beginnt mit einem einzigen Schritt."',
-        enter: "EINTRETEN",
-        home: "de-home.html"
+    eo: {
+        title: "Zoso Projekto",
+        quote: '"Kiam la popoloj povos interkompreniĝi, ili ĉesos malami unu la alian."',
+        enter: "ENIRI",
+        home: "eo-home.html"
     },
     zh: {
-        title: "我的网站",
-        quote: '"千里之行，始于足下。"',
+        title: "土星Project",
+        quote: '『潦倒不通庶务，愚顽怕读文章。』',
         enter: "入",
         home: "zh-home.html"
     }
