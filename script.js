@@ -4,25 +4,25 @@ const content = {
         title: "Zoso Project",
         quote: '"Every night as I gazed up at the window I said to myself softly the word paralysis."',
         enter: "ENTER",
-        home: "en-home.html"
+        home: "/en/en-home.html"
     },
     jp: {
         title: "ゾソProject",
         quote: '「結びつる心も深き元結ひに濃き紫の色し褪せずは。」',
         enter: "入力",
-        home: "jp-home.html"
+        home: "/jp/jp-home.html"
     },
     eo: {
         title: "Zoso Projekto",
         quote: '"Kiam la popoloj povos interkompreniĝi, ili ĉesos malami unu la alian."',
         enter: "ENIRI",
-        home: "eo-home.html"
+        home: "/eo/eo-home.html"
     },
     zh: {
         title: "土星Project",
         quote: '『潦倒不通庶务，愚顽怕读文章。』',
         enter: "入",
-        home: "zh-home.html"
+        home: "/zh/zh-home.html"
     }
 };
 
