@@ -1,4 +1,28 @@
-// Language content
+const bahaiMonths = {
+    en: [
+        "Bahá", "Jalál", "Jamál", "'Aẓamat", "Núr", "Raḥmat",
+        "Kalimát", "Kamál", "Asmá'", "'Izzat", "Mashíyyat", "'Ilm",
+        "Qudrat", "Qawl", "Masá'il", "Sharaf", "Sulṭán", "Mulk",
+        "Ayyám-i-Há", "'Alá'"
+    ],
+    jp: [
+        "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+        "11", "12", "13", "14", "15", "16", "17", "18",
+        "アヤメ・ハ", "19"
+    ],
+    eo: [
+        "Bahao", "Ĵalalo", "Ĵamalo", "Azamato", "Nuro", "Ramato",
+        "Kalemato", "Kamalo", "Asmao", "Ezato", "Maŝijato", "Elmo",
+        "Godrato", "Goŭlo", "Masaelo", "Ŝarafo", "Soltano", "Molko",
+        "Ajamo-i-Hao", "Alao"
+    ],
+    zh: [
+        "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+        "11", "12", "13", "14", "15", "16", "17", "18",
+        "阿亚密哈", "19"
+    ]
+};
+
 const content = {
     en: {
         title: "Zoso Project",
@@ -34,7 +58,6 @@ const content = {
     }
 };
 
-// Set language function
 function setLanguage(lang) {
     const data = content[lang];
 
@@ -43,38 +66,24 @@ function setLanguage(lang) {
     document.getElementById('enterLink').textContent = data.enter;
     document.getElementById('enterLink').href = data.home;
 
-    // Store selected language
     localStorage.setItem('selectedLanguage', lang);
 
-    // Update active button styling
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     event.target.classList.add('active');
 
-    // Update Bahai calendar
     displayBahaiCalendar(lang);
 }
 
-// Bahai Calendar calculation
-const bahaiMonths = [
-    "Bahá", "Jalál", "Jamál", "'Aẓamat", "Núr", "Raḥmat",
-    "Kalimát", "Kamál", "Asmá'", "'Izzat", "Mashíyyat", "'Ilm",
-    "Qudrat", "Qawl", "Masá'il", "Sharaf", "Sulṭán", "Mulk",
-    "Ayyám-i-Há", "'Alá'"
-];
-
-function getBahaiDate(date) {
+function getBahaiDate(date, lang = 'en') {
     const year = date.getFullYear();
     const month = date.getMonth();
     const day = date.getDate();
 
-    // Naw-Rúz (Bahai New Year) falls on the vernal equinox, approximately March 20-21
-    // For simplicity, we use March 20 as the start of the Bahai year
-    const nawRuzMonth = 2; // March (0-indexed)
+    const nawRuzMonth = 2;
     const nawRuzDay = 20;
 
-    // Calculate Bahai year
     let bahaiYear;
     if (month > nawRuzMonth || (month === nawRuzMonth && day >= nawRuzDay)) {
         bahaiYear = year - 1844 + 1;
@@ -82,41 +91,33 @@ function getBahaiDate(date) {
         bahaiYear = year - 1844;
     }
 
-    // Calculate day of Bahai year
     const nawRuzDate = new Date(year, nawRuzMonth, nawRuzDay);
     let dayOfBahaiYear;
 
     if (month > nawRuzMonth || (month === nawRuzMonth && day >= nawRuzDay)) {
         dayOfBahaiYear = Math.floor((date - nawRuzDate) / (1000 * 60 * 60 * 24)) + 1;
     } else {
-        // We're before Naw-Rúz, so calculate from previous year's Naw-Rúz
         const prevNawRuz = new Date(year - 1, nawRuzMonth, nawRuzDay);
         dayOfBahaiYear = Math.floor((date - prevNawRuz) / (1000 * 60 * 60 * 24)) + 1;
     }
 
-    // Calculate Bahai month and day
-    // 18 months of 19 days = 342 days, then Ayyám-i-Há (4-5 days), then 'Alá' (19 days)
     let bahaiMonth, bahaiDay;
 
     if (dayOfBahaiYear <= 342) {
-        // First 18 months (Bahá through Mulk)
         bahaiMonth = Math.ceil(dayOfBahaiYear / 19) - 1;
         bahaiDay = ((dayOfBahaiYear - 1) % 19) + 1;
     } else if (dayOfBahaiYear <= 346 || (dayOfBahaiYear <= 347 && isLeapYear(year))) {
-        // Ayyám-i-Há (intercalary days)
-        bahaiMonth = 18; // Index for Ayyám-i-Há
+        bahaiMonth = 18;
         bahaiDay = dayOfBahaiYear - 342;
     } else {
-        // Month of 'Alá' (the fasting month)
-        bahaiMonth = 19; // Index for 'Alá'
+        bahaiMonth = 19;
         const ayyamLength = isLeapYear(year) ? 5 : 4;
         bahaiDay = dayOfBahaiYear - 342 - ayyamLength;
     }
 
     return {
         year: bahaiYear,
-        month: bahaiMonths[bahaiMonth],
-        monthIndex: bahaiMonth + 1,
+        month: bahaiMonths[lang][bahaiMonth],
         day: bahaiDay
     };
 }
@@ -127,7 +128,7 @@ function isLeapYear(year) {
 
 function displayBahaiCalendar(lang = 'en') {
     const today = new Date();
-    const bahaiDate = getBahaiDate(today);
+    const bahaiDate = getBahaiDate(today, lang);
     const calendarDiv = document.getElementById('bahaiCalendar');
     const data = content[lang];
 
@@ -137,11 +138,8 @@ function displayBahaiCalendar(lang = 'en') {
     }
 }
 
-// Load saved language on page load
 window.onload = function() {
     const saved = localStorage.getItem('selectedLanguage');
     const lang = (saved && content[saved]) ? saved : 'en';
-
-    // Display Bahai calendar
     displayBahaiCalendar(lang);
 };
