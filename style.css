@@ -67,6 +67,36 @@ body {
     color: #ff0000;
 }
 
+/* Bahai Calendar */
+.bahai-calendar {
+    margin-bottom: 40px;
+}
+
+.bahai-date {
+    background-color: #c0c0c0;
+    border: 2px solid #000;
+    padding: 15px 25px;
+    display: inline-block;
+    box-shadow: 3px 3px 0px #000;
+}
+
+.bahai-label {
+    color: #000080;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.bahai-value {
+    color: #000;
+    font-size: 1.1em;
+}
+
+.bahai-meaning {
+    color: #555;
+    font-style: italic;
+    margin-left: 8px;
+}
+
 /* Language */
 .lang-bar {
     background-color: #c0c0c0;
@@ -172,6 +202,21 @@ body {
     
     .separator {
         padding: 0 2px;
+    }
+
+    .bahai-date {
+        padding: 10px 15px;
+    }
+
+    .bahai-label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .bahai-meaning {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
     }
 }
 
