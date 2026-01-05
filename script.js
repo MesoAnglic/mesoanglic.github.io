@@ -4,69 +4,64 @@ const content = {
         title: "Zoso Project",
         quote: '"Every night as I gazed up at the window I said to myself softly the word paralysis."',
         enter: "ENTER",
-        home: "/en/en-home.html"
+        home: "/en/en-home.html",
+        todayIs: "Today is:",
+        dateFormat: (day, month, year) => `${day} ${month} ${year} BE`
     },
     jp: {
         title: "ゾソProject",
         quote: '「結びつる心も深き元結ひに濃き紫の色し褪せずは。」',
         enter: "入力",
-        home: "/jp/jp-home.html"
+        home: "/jp/jp-home.html",
+        todayIs: "今日は：",
+        dateFormat: (day, month, year) => `${year}年${month}月${day}日`
     },
     eo: {
         title: "Zoso Projekto",
         quote: '"Kiam la popoloj povos interkompreniĝi, ili ĉesos malami unu la alian."',
         enter: "ENIRI",
-        home: "/eo/eo-home.html"
+        home: "/eo/eo-home.html",
+        todayIs: "Hodiaŭ estas:",
+        dateFormat: (day, month, year) => `${day} ${month} ${year} BE`
     },
     zh: {
         title: "土星Project",
         quote: '『潦倒不通庶务，愚顽怕读文章。』',
         enter: "入",
-        home: "/zh/zh-home.html"
+        home: "/zh/zh-home.html",
+        todayIs: "今天是：",
+        dateFormat: (day, month, year) => `${year}年${month}月${day}日`
     }
 };
 
 // Set language function
 function setLanguage(lang) {
     const data = content[lang];
-    
+
     document.getElementById('siteTitle').textContent = data.title;
     document.getElementById('quote').textContent = data.quote;
     document.getElementById('enterLink').textContent = data.enter;
     document.getElementById('enterLink').href = data.home;
-    
+
     // Store selected language
     localStorage.setItem('selectedLanguage', lang);
-    
+
     // Update active button styling
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     event.target.classList.add('active');
+
+    // Update Bahai calendar
+    displayBahaiCalendar(lang);
 }
 
 // Bahai Calendar calculation
 const bahaiMonths = [
-    { name: "Bahá", meaning: "Splendour" },
-    { name: "Jalál", meaning: "Glory" },
-    { name: "Jamál", meaning: "Beauty" },
-    { name: "'Aẓamat", meaning: "Grandeur" },
-    { name: "Núr", meaning: "Light" },
-    { name: "Raḥmat", meaning: "Mercy" },
-    { name: "Kalimát", meaning: "Words" },
-    { name: "Kamál", meaning: "Perfection" },
-    { name: "Asmá'", meaning: "Names" },
-    { name: "'Izzat", meaning: "Might" },
-    { name: "Mashíyyat", meaning: "Will" },
-    { name: "'Ilm", meaning: "Knowledge" },
-    { name: "Qudrat", meaning: "Power" },
-    { name: "Qawl", meaning: "Speech" },
-    { name: "Masá'il", meaning: "Questions" },
-    { name: "Sharaf", meaning: "Honour" },
-    { name: "Sulṭán", meaning: "Sovereignty" },
-    { name: "Mulk", meaning: "Dominion" },
-    { name: "Ayyám-i-Há", meaning: "Intercalary Days" },
-    { name: "'Alá'", meaning: "Loftiness" }
+    "Bahá", "Jalál", "Jamál", "'Aẓamat", "Núr", "Raḥmat",
+    "Kalimát", "Kamál", "Asmá'", "'Izzat", "Mashíyyat", "'Ilm",
+    "Qudrat", "Qawl", "Masá'il", "Sharaf", "Sulṭán", "Mulk",
+    "Ayyám-i-Há", "'Alá'"
 ];
 
 function getBahaiDate(date) {
@@ -121,6 +116,7 @@ function getBahaiDate(date) {
     return {
         year: bahaiYear,
         month: bahaiMonths[bahaiMonth],
+        monthIndex: bahaiMonth + 1,
         day: bahaiDay
     };
 }
@@ -129,29 +125,23 @@ function isLeapYear(year) {
     return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
 }
 
-function displayBahaiCalendar() {
+function displayBahaiCalendar(lang = 'en') {
     const today = new Date();
     const bahaiDate = getBahaiDate(today);
     const calendarDiv = document.getElementById('bahaiCalendar');
+    const data = content[lang];
 
-    if (calendarDiv) {
-        calendarDiv.innerHTML = `
-            <div class="bahai-date">
-                <span class="bahai-label">Badí' Calendar:</span>
-                <span class="bahai-value">${bahaiDate.day} ${bahaiDate.month.name} ${bahaiDate.year} BE</span>
-                <span class="bahai-meaning">(${bahaiDate.month.meaning})</span>
-            </div>
-        `;
+    if (calendarDiv && data) {
+        const formattedDate = data.dateFormat(bahaiDate.day, bahaiDate.month, bahaiDate.year);
+        calendarDiv.innerHTML = `<span class="bahai-label">${data.todayIs}</span> <span class="bahai-value">${formattedDate}</span>`;
     }
 }
 
 // Load saved language on page load
 window.onload = function() {
     const saved = localStorage.getItem('selectedLanguage');
-    if (saved && content[saved]) {
-        setLanguage(saved);
-    }
+    const lang = (saved && content[saved]) ? saved : 'en';
 
     // Display Bahai calendar
-    displayBahaiCalendar();
+    displayBahaiCalendar(lang);
 };
