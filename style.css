@@ -81,6 +81,10 @@ body {
     color: #000;
 }
 
+.web-buttons {
+    margin-top: 30px;
+}
+
 /* Language */
 .lang-bar {
     background-color: #c0c0c0;
