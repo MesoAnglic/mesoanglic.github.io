@@ -204,6 +204,28 @@ body {
     border: 1px solid #ccc;
 }
 
+.footnote-ref {
+    font-size: 0.75em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+.footnotes {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.footnotes p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
 @media (max-width: 600px) {
     .site-title {
         font-size: 2.5em;
