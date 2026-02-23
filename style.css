@@ -226,6 +226,26 @@ body {
     margin-top: 10px;
 }
 
+.lang-toggle {
+    margin: 10px 0;
+    display: inline-flex;
+}
+
+.lang-toggle-btn {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #000;
+    background: #c0c0c0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.lang-toggle-btn.active {
+    background: #000080;
+    color: #fff;
+}
+
 @media (max-width: 600px) {
     .site-title {
         font-size: 2.5em;
