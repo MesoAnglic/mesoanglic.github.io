@@ -228,7 +228,8 @@ body {
 
 .lang-toggle {
     margin: 10px 0;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
 }
 
 .lang-toggle-btn {
