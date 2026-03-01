@@ -248,6 +248,13 @@ body {
 }
 
 @media (max-width: 600px) {
+    .home-container {
+    padding: 15px 8px;
+}
+
+.home-content {
+    padding: 15px;
+}
     .site-title {
         font-size: 2.5em;
     }
