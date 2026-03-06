@@ -35,16 +35,21 @@
             <p>Footnotes are provided for military terminology, unit designations, geographical references, and other context that an Anglophone reader would not be expected to know.</p>
 
             <h2>Chapters</h2>
-            <p><a href="national-will/1.html">• Chapter 1: A New Conflict</a></p>
-            <p><a href="national-will/2.html">• Chapter 2: The Eagle</a></p>
-            <p><a href="national-will/3.html">• Chapter 3: Circling</a></p>
-            <p><a href="national-will/4.html">• Chapter 4: Thunder and Lightning</a></p>
-            <p><a href="national-will/5.html">• Chapter 5: Group Captain</a></p>
-            <p><a href="national-will/6.html">• Chapter 6: The Brave</a></p>
-            <p><a href="national-will/7.html">• Chapter 7: Counterattack</a></p>
-            <p><a href="national-will/8.html">• Chapter 8: The Ministry of Defence</a></p>
-            <p><a href="national-will/9.html">• Chapter 9: The Sniper</a></p>
-            <p><a href="national-will/10.html">• Chapter 10: Contact</a></p>
+            <div id="chapter-list">
+                <p class="ch-entry"><a href="national-will/1.html">• Chapter 1: A New Conflict</a></p>
+                <p class="ch-entry"><a href="national-will/2.html">• Chapter 2: The Eagle</a></p>
+                <p class="ch-entry"><a href="national-will/3.html">• Chapter 3: Circling</a></p>
+                <p class="ch-entry"><a href="national-will/4.html">• Chapter 4: Thunder and Lightning</a></p>
+                <p class="ch-entry"><a href="national-will/5.html">• Chapter 5: Group Captain</a></p>
+                <p class="ch-entry"><a href="national-will/6.html">• Chapter 6: The Brave</a></p>
+                <p class="ch-entry"><a href="national-will/7.html">• Chapter 7: Counterattack</a></p>
+                <p class="ch-entry"><a href="national-will/8.html">• Chapter 8: The Ministry of Defence</a></p>
+                <p class="ch-entry"><a href="national-will/9.html">• Chapter 9: The Sniper</a></p>
+                <p class="ch-entry"><a href="national-will/10.html">• Chapter 10: Contact</a></p>
+                <p class="ch-entry"><a href="national-will/11.html">• Chapter 11: Night Raid</a></p>
+                <p class="ch-entry"><a href="national-will/12.html">• Chapter 12: The Bombing</a></p>
+            </div>
+            <p id="show-more-btn"><a href="#" onclick="showMore(); return false;">• Show more chapters ↓</a></p>
 
             <hr class="article-divider">
             
@@ -52,7 +57,31 @@
             <p><a href="../en-translations.html">• Return</a></p>
         </div>
     </div>
-        <script data-goatcounter="https://zoso.goatcounter.com/count"
+    <script>
+    (function() {
+        var entries = document.querySelectorAll('.ch-entry');
+        var pageSize = 10;
+        var shown = pageSize;
+        var btn = document.getElementById('show-more-btn');
+        for (var i = pageSize; i < entries.length; i++) {
+            entries[i].style.display = 'none';
+        }
+        if (entries.length <= pageSize) {
+            btn.style.display = 'none';
+        }
+        window.showMore = function() {
+            var next = Math.min(shown + pageSize, entries.length);
+            for (var i = shown; i < next; i++) {
+                entries[i].style.display = '';
+            }
+            shown = next;
+            if (shown >= entries.length) {
+                btn.style.display = 'none';
+            }
+        };
+    })();
+    </script>
+    <script data-goatcounter="https://zoso.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
