@@ -149,6 +149,8 @@ body {
     border: 2px solid #000;
     padding: 30px;
     line-height: 1.8;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .home-content h2 {
