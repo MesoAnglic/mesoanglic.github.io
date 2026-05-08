@@ -302,3 +302,35 @@ body {
         font-size: 0.85em;
     }
 }
+
+.ws-data {
+    margin: 1.5em auto;
+    border-collapse: collapse;
+}
+.ws-data td {
+    padding: 0.25em 2em 0.25em 0;
+}
+.ws-data td:last-child {
+    text-align: right;
+    padding-right: 0;
+}
+
+.ws-roster {
+    margin: 1.5em auto;
+    border-collapse: collapse;
+}
+.ws-roster td {
+    padding: 0.2em 1.5em 0.2em 0;
+    vertical-align: top;
+}
+.ws-roster td:last-child {
+    padding-right: 0;
+}
+
+.ws-instruments {
+    padding-left: 3em;
+    margin: 1em 0;
+}
+.ws-instruments li {
+    margin: 0.15em 0;
+}
