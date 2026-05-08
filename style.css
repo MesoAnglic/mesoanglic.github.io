@@ -337,3 +337,49 @@ body {
     padding-left: 1em;
     text-indent: -1em;
 }
+
+.ascent-grid {
+    column-count: 4;
+    column-gap: 2em;
+    column-rule: 1px solid #999;
+    margin: 2em 0;
+}
+@media (max-width: 900px) {
+    .ascent-grid { column-count: 2; }
+}
+@media (max-width: 500px) {
+    .ascent-grid { column-count: 1; column-rule: none; }
+}
+.ascent {
+    break-inside: avoid;
+    margin-bottom: 1.5em;
+    font-size: 0.85em;
+}
+.ascent-id {
+    font-weight: bold;
+    text-align: center;
+    margin: 0.5em 0 0.2em 0;
+}
+.ascent-time, .ascent-clouds {
+    text-align: center;
+    margin: 0.1em 0;
+    font-style: italic;
+}
+.ascent-clouds { font-style: normal; }
+.ascent-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.3em;
+}
+.ascent-table th {
+    font-weight: normal;
+    font-style: italic;
+    border-bottom: 1px solid #555;
+    padding: 0.15em 0.3em;
+    font-size: 0.9em;
+}
+.ascent-table td {
+    padding: 0.05em 0.3em;
+    text-align: right;
+}
+.ascent-table td:first-child { text-align: left; }
