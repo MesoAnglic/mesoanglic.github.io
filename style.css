@@ -328,9 +328,12 @@ body {
 }
 
 .ws-instruments {
-    padding-left: 3em;
+    padding-left: 0;
     margin: 1em 0;
+    list-style-position: inside;
 }
 .ws-instruments li {
     margin: 0.15em 0;
+    padding-left: 1em;
+    text-indent: -1em;
 }
