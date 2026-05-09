@@ -383,3 +383,97 @@ body {
     text-align: right;
 }
 .ascent-table td:first-child { text-align: left; }
+
+
+.vt-narrow {
+    margin: 1.5em auto;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+.vt-narrow th, .vt-narrow td {
+    padding: 0.3em 0.8em;
+    text-align: center;
+    border: 1px solid #555;
+}
+.vt-narrow th {
+    font-weight: normal;
+    background-color: #f0f0f0;
+}
+.vt-narrow td:first-child, .vt-narrow th:first-child {
+    text-align: left;
+}
+
+.vt-direction {
+    margin: 1.5em auto;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+.vt-direction td, .vt-direction th {
+    padding: 0.2em 1em 0.2em 0;
+    text-align: right;
+}
+.vt-direction td:first-child, .vt-direction th:first-child {
+    text-align: left;
+    padding-right: 1.5em;
+}
+.vt-direction th {
+    font-weight: normal;
+    font-style: italic;
+    border-bottom: 1px solid #555;
+}
+
+.vt-formula {
+    text-align: center;
+    font-style: italic;
+    margin: 1em 0;
+    font-size: 1.05em;
+}
+
+.vt-wide-wrap {
+    overflow-x: auto;
+    margin: 2em 0;
+    border: 1px solid #999;
+    padding: 0.5em;
+}
+.vt-wide {
+    border-collapse: collapse;
+    font-size: 0.78em;
+    white-space: nowrap;
+    margin: 0 auto;
+}
+.vt-wide caption {
+    caption-side: top;
+    font-style: italic;
+    padding-bottom: 0.5em;
+}
+.vt-wide th, .vt-wide td {
+    padding: 0.15em 0.45em;
+    text-align: right;
+    border: 1px solid #888;
+}
+.vt-wide thead th {
+    background-color: #f0f0f0;
+    font-weight: normal;
+}
+.vt-wide tbody th {
+    text-align: left;
+    font-weight: normal;
+    background-color: #f8f8f8;
+}
+.vt-wide tr.vt-n td, .vt-wide tr.vt-n th {
+    color: #666;
+    font-size: 0.9em;
+    border-bottom: 1px solid #555;
+}
+.vt-wide tr.vt-mezo td, .vt-wide tr.vt-mezo th {
+    font-weight: bold;
+}
+.vt-wide tbody.vt-season {
+    border-top: 2px solid #333;
+}
+.vt-table-note {
+    text-align: center;
+    font-size: 0.85em;
+    color: #666;
+    margin: 0.5em 0 1em 0;
+}
