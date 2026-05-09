@@ -477,3 +477,19 @@ body {
     color: #666;
     margin: 0.5em 0 1em 0;
 }
+
+.home-content ol, .home-content ul {
+    padding-left: 1.5em;
+    margin-left: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.vt-narrow-wrap, .vt-direction-wrap {
+    overflow-x: auto;
+    margin: 1.5em 0;
+}
+.vt-narrow-wrap .vt-narrow,
+.vt-direction-wrap .vt-direction {
+    margin: 0 auto;
+}
