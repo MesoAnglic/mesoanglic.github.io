@@ -500,3 +500,19 @@ body {
 .vt-direction th, .vt-direction td {
     white-space: nowrap;
 }
+
+figure {
+    margin: 1.5em auto;
+    text-align: center;
+}
+
+figure img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+figcaption {
+    margin-top: 0.5em;
+    font-style: italic;
+}
