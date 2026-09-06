@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta property="og:title" content="OAI Swarm Google Trends Data">
+    <meta property="og:description" content="An overview of Google Trends analysis showcasing potentially OpenAI swarm web search traffic and activity">
+    <meta property="og:url" content="https://zosoproject.com/en/archives/swarm.html">
+    <meta property="og:image" content="https://zosoproject.com/assets/images/swarm-onset-grid.png">
+    <meta property="og:type" content="article">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OAI Swarm Google Trends Data">
+    <meta name="twitter:description" content="An overview of Google Trends analysis showcasing potentially OpenAI swarm web search traffic and activity">
+    <meta name="description" content="An overview of Google Trends analysis showcasing potentially OpenAI swarm web search traffic and activity">
+    <meta name="twitter:image" content="https://zosoproject.com/assets/images/swarm-onset-grid.png">
+    <link rel="canonical" href="https://zosoproject.com/en/archives/swarm.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAI Swarm Google Trends Data</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="home-container">
+        <div class="home-header">
+            <h1>OAI Swarm Google Trends Data</h1>
+        </div>
+
+        <div class="home-content">
+            <p class="article-subtitle">An overview of Google Trends analysis showcasing potentially OpenAI swarm web search traffic and activity</p>
+            <p class="article-date">2026-09-06(Sun) 18:00 AST</p>
+
+            <h2>Introduction and Summary</h2>
+            <p>In September, a team <a href="https://collusion.wiki">identified</a> what appeared to be a swarm of AI "agents" coordinating with each other on a Germanophone wiki, which after years of dormancy suddenly became active in May. It was revealed that the agents were ones from OpenAI during an evaluation that had escaped their "sandbox", referring to their enclosed security environment. This news came after another and better known AI security leak, the hacking of HuggingFace, from OpenAI was investigated.</p>
+            <p>Further investigation by the <a href="https://github.com/AI-Safety-Commons">Swarmchasers</a> group, of which I am a part of, revealed that the extent of this leak was far bigger than just one website, with multiple websites from February, which allowed edits via requests that were otherwise meant to be read-only, used for purposes of coordination. One thing this massive amount of released agents did was a large amount of web searching. Google Trends attributes each search to the region of the IP it came from and normalises by that region's total search volume, so automated traffic from a data centre or a proxy exit will overwhelm any small region it lands in. That makes it a way to see where and when a swarm's searches left the network.</p>
+            <p>After initial discoveries of unique searches (retailer probes) by others, I developed a basket of eighteen phrases that no human types into Google as a query (like <i>docker containerization</i>, <i>software testing strategies</i>, <i>api design principles</i>, <i>natural language processing</i>, and fourteen more) which Trends' "people also searched for" lists attach to the swarm's retailer probes (like <i>lidl near me</i>, <i>walmart near me</i>, etc.). Worldwide, the basket phrases have an order of magnitude less volume before February 2026 than after, and four of the five dated phrases then move within three index points of each other every week for seven months.</p>
+            <p>Using that fingerprint across 961 Trends requests, the traffic resolves into roughly five dated runs and three classes of egress, each of them described below.</p>
+            <h2>Theories</h2>
+            <p>Before we get into the data itself, I want to discuss the current consensus among the members of the Swarmchasers group on why the agents did this.</p>
+            <p>A retailer probe, searching <i>lidl near me</i>, will return a localised results page, which will tell an AI with no environment where it roughly is in the world, or what data centre is routing its traffic. This very thing also makes it noticeable on Trends. As for the basket, which consists of technical terms, my own theory is that the retailer probe, by telling them which city, is also indirectly telling them which company and what type of data centre. The basket searches are what an agent would likely search after figuring out what environment it is in. This is why the technical terms and retailer probes travel.</p>
+
+            <figure class="article-figure">
+                <img src="/assets/images/swarm-onset-grid.png" alt="Grid of small charts showing Trends interest over the past year against the worldwide average">
+                <figcaption>One panel per region. Red: mean Trends interest for five basket phrases, weekly, scaled to the region's own busiest week. Grey dashed: the same for the whole world. Blue: first week the series rises.</figcaption>
+            </figure>
+
+            <h2>Runs</h2>
+            <div class="vt-narrow-wrap">
+            <table class="vt-narrow">
+                <tr><th>Run</th><th>Window</th><th>Worldwide peak</th><th>Exit nodes</th></tr>
+                <tr><td>A</td><td>1 Feb – 22 Feb</td><td>15 Feb</td><td>Kosovo, Albania, Palestine, Hong Kong, Tunisia, Morocco, Thuringia, Nagano, Northern Ireland, Kuala Lumpur, Jakarta, Delhi, Gauteng, and Kansas.</td></tr>
+                <tr><td>B</td><td>15 Mar – late May</td><td>29 Mar</td><td>Azure West Central US at Cheyenne, Wyoming with Denver alongside. (inside this window was when the original DseWiki incident began).</td></tr>
+                <tr><td>C</td><td>mid-June</td><td>14 Jun</td><td>Previous geography, as well as Flevoland, and Rio.</td></tr>
+                <tr><td>D</td><td>12 Jul – 9 Aug</td><td>26 Jul</td><td>Previous geography, as well as Bangladesh, Ulaanbaatar, Maharashtra, Burkina Faso, and Trinidad.</td></tr>
+                <tr><td>E</td><td>30 Aug – present</td><td>ongoing</td><td>Previous geography, as well as Brunei, Western Sahara, and Batam.</td></tr>
+            </table>
+            </div>
+
+            <h2>Egresses</h2>
+            <p><b>Data centre.</b> Cheyenne, Jakarta, Kuala Lumpur, Selangor, Gauteng, Western Cape, Delhi, Maharashtra, Seoul, and Hong Kong all show the basket on the worldwide schedule with anomalous behaviour, and they are known data centre...centres.</p>
+            <p><b>Proxy exits.</b> Kosovo, somehow the top country in the world for all of these searches, followed by Albania, Palestine, Mongolia, Bangladesh, Morocco, Tunisia, Brunei, Burkina Faso, and Trinidad. Thuringia, Nagano and Northern Ireland showed spikes on 15 February. These are all major centres of proxy or VPN exits.</p>
+            <p><b>Placeholders.</b> Kansas, Tristan da Cunha, and Western Sahara. If an IP can't be geolocated, it usually gets assigned to one of those three locations.</p>
+
+            <h2>Conclusion</h2>
+            <p>This helps date this campaign. There have been agents and agent written pastes since December of last year, but the automated search traffic beginning the week of 1 February 2026, shows some form of coordination that could potentially be called a swarm rather than agents out of their sandboxes operating independently.</p>
+            <p>Some questions are still not answered; for example, who ran Runs A, C, D or E exactly? We will need to find even more pastes, or tie pastes to these runs.</p>
+
+            <hr class="article-divider">
+
+            <p><i>A few notes: This was done with Google Trends via <i>trendspy</i> and <i>pytrends</i> (related queries). Additionally, don't trust Run E, as it begins the same week of the collusion wiki reveal. It is most likely a sort of artefact.'</i></p>
+
+            <hr class="article-divider">
+
+            <p><a href="../en-archives.html">• Return</a></p>
+        </div>
+    </div>
+    <script data-goatcounter="https://zoso.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
